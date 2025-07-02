@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills - Omendra</title>
+
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== ROOT VARIABLES ===== */
+    :root {
+      --main-font: 'Poppins', sans-serif;
+      --primary-color: #000000;
+      --accent-color: #0066ff;
+      --icon-size: 30px;
+      --light-bg: #f9f9f9;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== GLOBAL RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--main-font);
+      background-color: white;
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+    }
+
+    .nav-links li a[href="skills.html"] {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+    }
+
+    /* ===== SKILLS PAGE STYLES ===== */
+    .skills-page {
+      min-height: calc(100vh - 200px);
+      padding: 2rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 0 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 0 4%;
+      margin-bottom: 4rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), #0099ff);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+      background-color: white;
+      border-radius: 12px;
+      padding: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background-color: var(--light-bg);
+      color: #333;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-icons a {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+
+    .footer-icons a:hover {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.5rem;
+        padding: 0 2%;
+      }
+
+      .card {
+        padding: 1.5rem 1rem;
+      }
+
+      .card img {
+        width: 70px;
+        height: 70px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.8rem;
+      }
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-links {
+        gap: 0.5rem;
+      }
+
+      .nav-links li a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    /* Logo background variations for better consistency */
+    .card img[src*="python.png"],
+    .card img[src*="c++.png"],
+    .card img[src*="c.png"] {
+      background-color: #ffffff;
+      padding: 12px;
+    }
+
+    .card img[src*="matlab.png"],
+    .card img[src*="latex.png"] {
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
+    .card img[src*="arduino.png"],
+    .card img[src*="rpi.png"],
+    .card img[src*="esp32.png"] {
+      background-color: #ffffff;
+      padding: 8px;
+    }
+
+    /* Ensure all logos have consistent white backgrounds */
+    .card img {
+      background-color: white !important;
+    }
+    .skills-page {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // Fade-in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../Media/logos/logo om.png" alt="Omendra Logo" class="logo-img" />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== SKILLS PAGE ===== -->
+  <main class="skills-page">
+    <section class="section-header fade-in">
+      <h2>My Interests</h2>
+    </section>
+    
+    <section class="card-grid fade-in" id="interests">
+      <div class="card">
+        <img src="../Media/logos/analog.png" alt="Analog Electronics" />
+        <p>Analog Electronics</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/logic.png" alt="Digital Electronics" />
+        <p>Digital Electronics</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/embedded.png" alt="Embedded Systems" />
+        <p>Embedded Systems</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/control.png" alt="Control Systems" />
+        <p>Control Systems</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/ml.png" alt="Machine Learning" />
+        <p>Machine Learning</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/geopolitics.png" alt="Geopolitics" />
+        <p>Geopolitics</p>
+      </div>
+    </section>
+
+    <section class="section-header fade-in">
+      <h2>My Technical Skills</h2>
+    </section>
+    
+    <section class="card-grid fade-in" id="skills">
+      <div class="card">
+        <img src="../Media/logos/python.png" alt="Python Programming" />
+        <p>Python</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/c++.png" alt="C++ Programming" />
+        <p>C++</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/c.png" alt="C Programming" />
+        <p>C</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/matlab.png" alt="MATLAB" />
+        <p>MATLAB</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/rpi.png" alt="Raspberry Pi" />
+        <p>Raspberry Pi</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/esp32.png" alt="ESP-32 Microcontroller" />
+        <p>ESP-32</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/arduino.png" alt="Arduino" />
+        <p>Arduino</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/gnuradio.png" alt="GNU Radio" />
+        <p>GNU Radio</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/ltspice.png" alt="LT Spice Simulation" />
+        <p>LT Spice</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/easyeda.png" alt="Easy EDA PCB Design" />
+        <p>Easy EDA</p>
+      </div>
+      <div class="card">
+        <img src="../Media/logos/latex.png" alt="LaTeX Document Processing" />
+        <p>LaTeX</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Omendra Kumar Upadhyay. All rights reserved.</p>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/omendra-kumar-upadhyay-b00402260/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:upadhyayom369@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.instagram.com/om.endra_3.6.9/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

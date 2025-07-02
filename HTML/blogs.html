@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs - Omendra</title>
+
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== ROOT VARIABLES ===== */
+    :root {
+      --main-font: 'Poppins', sans-serif;
+      --primary-color: #000000;
+      --accent-color: #0066ff;
+      --icon-size: 30px;
+      --light-bg: #f9f9f9;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== GLOBAL RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--main-font);
+      background-color: white;
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+    }
+
+    .nav-links li a[href="blogs.html"] {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+    }
+
+    /* ===== BLOGS PAGE STYLES ===== */
+    .blogs-page {
+      min-height: calc(100vh - 200px);
+      padding: 2rem 0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-header {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 0 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .blogs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4%;
+    }
+
+    .blog-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), #0099ff);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .blog-img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-card:hover .blog-img {
+      transform: scale(1.02);
+    }
+
+    .blog-content {
+      flex: 1;
+    }
+
+    .blog-content h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .blog-snippet {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 102, 255, 0.2);
+    }
+
+    .read-more:hover {
+      background-color: #0052cc;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 102, 255, 0.3);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background-color: var(--light-bg);
+      color: #333;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-icons a {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+
+    .footer-icons a:hover {
+      color: var(--accent-color);
+      background-color: rgba(0, 102, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .blog-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .blog-img {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .blogs-container {
+        padding: 0 2%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.8rem;
+      }
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-links {
+        gap: 0.5rem;
+      }
+
+      .nav-links li a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .blog-card {
+        padding: 1.2rem;
+      }
+
+      .blog-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .blog-snippet {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../Media/logos/logo om.png" alt="Omendra Logo" class="logo-img" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== BLOGS CONTENT ===== -->
+  <main class="blogs-page">
+    <section class="section-header fade-in">
+      <h2>My Blogs</h2>
+    </section>
+
+    <div class="blogs-container fade-in">
+      <div class="blog-card">
+        <img src="../Media/blog1.jpg" alt="Blog 1" class="blog-img" />
+        <div class="blog-content">
+          <h3>The Inevitable Growth Of technology</h3>
+          <p class="blog-snippet">
+            The evolution of the human species, from a single cell to the intelligent beings we are today, spans over six million...
+          </p>
+          <a href="../HTML/Blogs/blog1.html" target="_blank"><button class="read-more">Read More</button></a>
+        </div>
+      </div>
+
+      <!-- <div class="blog-card">
+        <img src="../Media/blog2.jpg" alt="Blog 2" class="blog-img" />
+        <div class="blog-content">
+          <h3>The Rise of AI in Daily Life</h3>
+          <p class="blog-snippet">
+            Artificial Intelligence is transforming how we live, work, and think. From smart assistants to predictive algorithms, discover how AI is already embedded into your everyday life...
+          </p>
+          <a href="../HTML/blog2.html" target="_blank"><button class="read-more">Read More</button></a>
+        </div>
+      </div> -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Omendra Kumar Upadhyay. All rights reserved.</p>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/omendra-kumar-upadhyay-b00402260/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:upadhyayom369@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.instagram.com/om.endra_3.6.9/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fade-in Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
