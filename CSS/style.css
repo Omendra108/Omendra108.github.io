@@ -46,14 +46,19 @@ ul {
   top: 0;
   background-color: var(--background-color);
   z-index: 100;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--accent-color);
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .nav-links {
@@ -127,7 +132,7 @@ ul {
   color: var(--accent-color);
 }
 
-/* ===== HERO RIGHT ===== */
+/* ===== HERO RIGHT (BLOB PROFILE IMAGE) ===== */
 .hero-right {
   flex: 1 1 300px;
   display: flex;
@@ -242,8 +247,6 @@ ul {
 .card img {
   width: 60px;
   height: 60px;
-  object-fit: contain;
-  max-width: 100%;
   margin-bottom: 0.8rem;
 }
 
@@ -297,8 +300,7 @@ ul {
 
 .experience-img {
   width: 100%;
-  max-width: 400px;
-  height: auto;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -474,6 +476,18 @@ ul {
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .about-section {
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-image {
+    margin-top: 2rem;
   }
 }
 
