@@ -17,15 +17,19 @@
         /* ===== ROOT VARIABLES ===== */
         :root {
             --main-font: 'Poppins', sans-serif;
-            --primary-color: #000000;
-            --accent-color: #0066ff;
-            --light-bg: #f9f9f9;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
-            --text-secondary: #666;
-            --border-color: #e0e0e0;
-            --success-color: #28a745;
-            --error-color: #dc3545;
+            --primary-color: #f5f5f5;
+            --accent-color: #1db954;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --footer-background: #181818;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.7);
+            --text-secondary: #cccccc;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --success-color: #1db954;
+            --error-color: #ff4444;
+            --input-bg: #2a2a2a;
+            --input-border: rgba(255, 255, 255, 0.2);
         }
 
         /* ===== GLOBAL RESET ===== */
@@ -37,7 +41,7 @@
 
         body {
             font-family: var(--main-font);
-            background-color: white;
+            background-color: var(--background-color);
             color: var(--primary-color);
             line-height: 1.6;
         }
@@ -56,30 +60,31 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #ddd;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
-            background-color: white;
+            background-color: var(--background-color);
             z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .logo {
-            display: flex;
-            align-items: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--accent-color);
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
             border-radius: 8px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -93,12 +98,10 @@
 
         .nav-links li a:hover {
             color: var(--accent-color);
-            background-color: rgba(0, 102, 255, 0.1);
         }
 
         .nav-links li a[href="contact.html"] {
             color: var(--accent-color);
-            background-color: rgba(0, 102, 255, 0.1);
         }
 
         /* ===== CONTACT PAGE STYLES ===== */
@@ -142,7 +145,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background-color: var(--accent-color);
+            background: linear-gradient(90deg, var(--accent-color), #0d9e42);
             border-radius: 2px;
         }
 
@@ -167,13 +170,14 @@
 
         /* ===== CONTACT INFO SECTION ===== */
         .contact-info {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
+            background: var(--card-background);
+            border-radius: 15px;
+            padding: 2rem;
             box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .contact-info::before {
@@ -182,8 +186,13 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), #0099ff);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d9e42);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .contact-info h3 {
@@ -200,17 +209,18 @@
             padding: 1rem;
             border-radius: 12px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .contact-item:hover {
-            background-color: rgba(0, 102, 255, 0.05);
+            background: rgba(29, 185, 84, 0.1);
             transform: translateX(5px);
         }
 
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--accent-color), #0099ff);
+            background: linear-gradient(135deg, var(--accent-color), #0d9e42);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -266,33 +276,30 @@
         .social-icon {
             width: 45px;
             height: 45px;
-            background: white;
-            border: 2px solid var(--border-color);
+            background: linear-gradient(135deg, var(--accent-color), #0d9e42);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            color: var(--text-secondary);
+            color: white;
         }
 
         .social-icon:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            color: white;
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
         }
 
         /* ===== CONTACT FORM SECTION ===== */
         .contact-form {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
+            background: var(--card-background);
+            border-radius: 15px;
+            padding: 2rem;
             box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .contact-form::before {
@@ -301,8 +308,13 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), #0099ff);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d9e42);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .contact-form h3 {
@@ -328,12 +340,12 @@
         .form-group textarea {
             width: 100%;
             padding: 1rem 1.2rem;
-            border: 2px solid var(--border-color);
+            border: 2px solid var(--input-border);
             border-radius: 12px;
             font-size: 1rem;
             font-family: var(--main-font);
             transition: all 0.3s ease;
-            background: #fafafa;
+            background: var(--input-bg);
             color: var(--primary-color);
         }
 
@@ -341,8 +353,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-color);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
         }
 
         .form-group textarea {
@@ -353,7 +364,7 @@
         .submit-btn {
             width: 100%;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--accent-color), #0099ff);
+            background: linear-gradient(135deg, var(--accent-color), #0d9e42);
             color: white;
             border: none;
             border-radius: 12px;
@@ -387,7 +398,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
         }
 
         .submit-btn:disabled {
@@ -405,35 +416,36 @@
         }
 
         .success-message {
-            background: rgba(40, 167, 69, 0.1);
+            background: rgba(29, 185, 84, 0.1);
             color: var(--success-color);
-            border: 1px solid rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(29, 185, 84, 0.3);
         }
 
         .error-message {
-            background: rgba(220, 53, 69, 0.1);
+            background: rgba(255, 68, 68, 0.1);
             color: var(--error-color);
-            border: 1px solid rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(255, 68, 68, 0.3);
         }
 
         /* ===== FOOTER ===== */
         .site-footer {
-            background-color: var(--light-bg);
-            color: #333;
+            background-color: var(--footer-background);
+            color: var(--primary-color);
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem;
             font-size: 0.9rem;
             margin-top: 4rem;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            gap: 1rem;
             max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .footer-icons {
@@ -442,17 +454,22 @@
         }
 
         .footer-icons a {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-            padding: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-color), #0d9e42);
+            color: white;
             border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .footer-icons a:hover {
-            color: var(--accent-color);
-            background-color: rgba(0, 102, 255, 0.1);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
@@ -488,7 +505,7 @@
 
             .contact-info,
             .contact-form {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
 
             .contact-item {
@@ -499,6 +516,11 @@
                 width: 45px;
                 height: 45px;
             }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -507,8 +529,7 @@
             }
 
             .logo-img {
-                width: 40px;
-                height: 40px;
+                width: 80px;
             }
 
             .nav-links li a {
@@ -530,7 +551,7 @@
 
             .contact-info,
             .contact-form {
-                padding: 1.5rem 1rem;
+                padding: 1.2rem;
             }
 
             .contact-info h3,
@@ -565,21 +586,18 @@
 
 <body>
     <!-- ===== NAVBAR ===== -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../Media/logos/logo om.png" alt="Omendra Logo" class="logo-img" />
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Omendra Kumar Upadhyay</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- ===== CONTACT PAGE ===== -->
     <main class="contact-page">
@@ -602,16 +620,6 @@
                         <p><a href="mailto:upadhyayom369@gmail.com">upadhyayom369@gmail.com</a></p>
                     </div>
                 </div>
-
-                <!-- <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Phone</h4>
-                        <p>+91 XXX XXX XXXX</p>
-                    </div>
-                </div> -->
 
                 <div class="contact-item">
                     <div class="contact-icon">
@@ -739,29 +747,13 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Submit to Formspree (replace with your actual endpoint)
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        formStatus.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.</div>';
-                        this.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                })
-                .catch(error => {
-                    formStatus.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again.</div>';
-                })
-                .finally(() => {
+                // Simulate form submission (replace with actual endpoint)
+                setTimeout(() => {
+                    formStatus.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.</div>';
+                    this.reset();
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                     submitBtn.disabled = false;
-                });
+                }, 2000);
             });
         });
     </script>

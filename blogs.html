@@ -17,12 +17,12 @@
     /* ===== ROOT VARIABLES ===== */
     :root {
       --main-font: 'Poppins', sans-serif;
-      --primary-color: #000000;
-      --accent-color: #0066ff;
+      --primary-color: #f5f5f5;
+      --accent-color: #1db954;
       --icon-size: 30px;
-      --light-bg: #f9f9f9;
-      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --footer-background: #181818;
     }
 
     /* ===== GLOBAL RESET ===== */
@@ -34,7 +34,7 @@
 
     body {
       font-family: var(--main-font);
-      background-color: white;
+      background-color: var(--background-color);
       color: var(--primary-color);
       line-height: 1.6;
     }
@@ -50,52 +50,46 @@
 
     /* ===== NAVBAR ===== */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      background-color: white;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    z-index: 100;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
     }
 
     .logo-img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      border-radius: 8px;
+      width: 100px;
+      height: auto;
+      margin-right: 10px;
+      vertical-align: middle;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
-      align-items: center;
+      gap: 1.5rem;
     }
 
     .nav-links li a {
       font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      position: relative;
+      transition: color 0.3s;
     }
 
     .nav-links li a:hover {
       color: var(--accent-color);
-      background-color: rgba(0, 102, 255, 0.1);
     }
 
     .nav-links li a[href="blogs.html"] {
       color: var(--accent-color);
-      background-color: rgba(0, 102, 255, 0.1);
     }
 
     /* ===== BLOGS PAGE STYLES ===== */
@@ -118,28 +112,10 @@
 
     .section-header {
       text-align: center;
-      margin: 3rem 0 2rem;
-      padding: 0 2rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
+      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
       color: var(--accent-color);
       font-weight: 600;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background-color: var(--accent-color);
-      border-radius: 2px;
     }
 
     .blogs-container {
@@ -149,17 +125,17 @@
     }
 
     .blog-card {
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: var(--card-shadow);
-      padding: 2rem;
+      background-color: var(--card-background);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
       display: flex;
       gap: 2rem;
       margin-bottom: 2rem;
-      position: relative;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      overflow: hidden;
     }
 
     .blog-card::before {
@@ -168,28 +144,21 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent-color), #0099ff);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .blog-card:hover::before {
-      transform: scaleX(1);
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), #0d9e42);
     }
 
     .blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
     }
 
     .blog-img {
       width: 200px;
-      height: auto;
-      border-radius: 12px;
+      height: 150px;
       object-fit: cover;
+      border-radius: 10px;
       transition: transform 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .blog-card:hover .blog-img {
@@ -201,36 +170,37 @@
     }
 
     .blog-content h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent-color);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
     }
 
     .blog-snippet {
-      font-size: 1rem;
-      color: #333;
+      color: #cccccc;
       margin-bottom: 1rem;
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
     .read-more {
-      background-color: var(--accent-color);
+      background: linear-gradient(135deg, var(--accent-color), #0d9e42);
       color: white;
       border: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
       cursor: pointer;
-      font-size: 0.9rem;
       font-weight: 500;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 102, 255, 0.2);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
     }
 
     .read-more:hover {
-      background-color: #0052cc;
+      background: linear-gradient(135deg, #0d9e42, #0b7a33);
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 102, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(29, 185, 84, 0.3);
     }
 
     /* Fade-in animation */
@@ -247,22 +217,23 @@
 
     /* ===== FOOTER ===== */
     .site-footer {
-      background-color: var(--light-bg);
-      color: #333;
+      background-color: var(--footer-background);
+      color: var(--primary-color);
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
       font-size: 0.9rem;
       margin-top: 4rem;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-content {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
       max-width: 1200px;
       margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .footer-icons {
@@ -271,17 +242,22 @@
     }
 
     .footer-icons a {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      transition: all 0.3s ease;
-      padding: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-color), #0d9e42);
+      color: white;
       border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
     }
 
     .footer-icons a:hover {
-      color: var(--accent-color);
-      background-color: rgba(0, 102, 255, 0.1);
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
@@ -299,8 +275,8 @@
         margin-top: 1rem;
       }
 
-      .section-header h2 {
-        font-size: 2rem;
+      .section-header {
+        font-size: 1.5rem;
       }
 
       .blog-card {
@@ -318,6 +294,11 @@
       .blogs-container {
         padding: 0 2%;
       }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -326,8 +307,7 @@
       }
 
       .logo-img {
-        width: 40px;
-        height: 40px;
+        width: 80px;
       }
 
       .nav-links {
@@ -339,8 +319,8 @@
         font-size: 0.9rem;
       }
 
-      .section-header h2 {
-        font-size: 1.8rem;
+      .section-header {
+        font-size: 1.3rem;
       }
 
       .blog-card {
@@ -352,7 +332,7 @@
       }
 
       .blog-snippet {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -361,9 +341,7 @@
   <!-- ===== NAVBAR ===== -->
   <header>
     <nav class="navbar">
-      <div class="logo">
-        <img src="../Media/logos/logo om.png" alt="Omendra Logo" class="logo-img" />
-      </div>
+      <div class="logo">Omendra Kumar Upadhyay</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="skills.html">Skills</a></li>
@@ -384,7 +362,7 @@
       <div class="blog-card">
         <img src="../Media/blog1.jpg" alt="Blog 1" class="blog-img" />
         <div class="blog-content">
-          <h3>The Inevitable Growth Of technology</h3>
+          <h3>The Inevitable Growth Of Technology</h3>
           <p class="blog-snippet">
             The evolution of the human species, from a single cell to the intelligent beings we are today, spans over six million...
           </p>
