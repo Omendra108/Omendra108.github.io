@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Love Embedded Systems</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      color: #f5f5f5;
+      background-color: #121212;
+      padding: 2rem;
+    }
+
+    .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .blog-container h1 {
+      font-size: 2.2rem;
+      color: #1db954;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .blog-meta {
+      color: #cccccc;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .blog-container p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      text-align: justify;
+      color: #f5f5f5;
+    }
+
+    .close-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #1db954, #0d9e42);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .close-button:hover {
+      background: linear-gradient(135deg, #0d9e42, #0b7a33);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .blog-container {
+        padding: 2rem 1.5rem;
+      }
+      
+      .blog-container h1 {
+        font-size: 1.8rem;
+      }
+      
+      .blog-container p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Close Button -->
+  <button class="close-button" onclick="window.close()" title="Close">&times;</button>
+
+  <!-- Blog Content Container -->
+  <div class="blog-container">
+    <h1>What I Learned at ISRO</h1>
+    <p class="blog-meta">Written by Omendra Kumar Upadhyay | Published on July 17, 2025</p>
+
+    <p>
+      During my summer internship training at Satish Dhawan Space Centre(SDSC), Sriharikota(SHAR) from May -June 2025 I came across a different environment and had new experiences that changed my thought process. We often hear about ISRO's missions and their sucessfull stories which makes every Indian proud and this has build a strong faith of not only Indians but also the whole world that ISRO never dissapoints. 
+    </p>
+
+    <p>
+      During the internship period I got the chance to interact with many scientists, engineers and staff at SDSC which helped me understand about how a launch of rocket occurs and what preperations are nedded before the actual launch event. I also visited certain facilities like FLP(First Launch Pad), SLP(Second Launch Pad), SSAB(Solid Stage Assembly Building), TC-II and SPF(Spacecraft Preperation Facility).
+    </p>
+
+    <p>
+      There were lot of new things I learnt and the curious insect inside me was amazed to look at such sophisticated and huge machines which were only helping a launch vehicle to follow Newtons third law of motion ! yes that's it. The first thing I learned at my workplace was- "All rockets fly using Newtons III law of motion", a very simple law that we see in day to day life, but the engineering behind the whole launch is not that simple.
+    </p>
+
+    <p>
+      Currently ISRO has 3 types of launch vehicles- PSLV, GSLV, LVM Mk-III, apart from this the development of HRLV(Human Rated Launch Vehicle) is still under process which will be used for "GaganYaan mission". Each launch vehicle has its own payload capacity and range of deploying spacecraft and the choice of launch vehicle varies from mission to mission.
+    </p>
+
+    <p>
+      Every launch vechicle has different stages that work sequentially during the launch and each stage has its own fuel and engine for combustion. The first stage is "solid rocket motor", where solid fuel(Aluminium powder + Amonium Perchlorate) is used for combustion and the thrust is generated. Different launch vehciles have different solid stage like PSLV has S200(Solid- 200 Ton fuel) whereas GSLV has S500(Solid- 500 Ton fuel), this difference exist because GSLV is mostly used for placing the satellite in Geo-Synchronous orbit which is far waya from earths surface.
+    </p>
+
+    <p>
+      Next stage is Earth-storable liquid propulsion stage, where liquid propellant(UDMH(Unsymmetrical Dimethyl Hydrazine) + N2O4(Dinitrogen Tetraoxide)) is used for combustion. Before the second stage ignites, the first satge solid rocket boosters are sepearted from the launch vechicles using pyro-explosive based system, where a certain material is energised to explode and seperate the stage.This seperation is necessary as previous stages no longer provide thrust and increase the weight of the launch vehicle and therefore it is better to seperate it. The liquid propulsion use booster like L110(Liquid- 110Ton) with thrust vector capable nozzles, which help launch vehicle maintain its trajectory.
+    </p>
+
+    <p>
+      The third stage is the most complex stage which is cryo-stage, where liquied oxygen(LOX) anf liquied hydrogen(LH2) are used as oxidiser and fuel. At high altitude the density of oxygen in atmosphere decreases to a level that combustion from sourrounding air is impossible, therefore launch vechicles carry LOX and LH2 tanks for providing enough thrust for launch vechicle to place the satellite in the orbit. Cryo propellants give more thrust per Kg. of propellant compared to solid stage and liquid stage. For C25(Cryo- 25 Ton) stage the LOX is stored at -153 degree celcius and LH2 is stored at -175 degree celcius, maintaining chemicals at such a low tempreature is very difficult but not for our ISRO's scientists & engineers.
+    </p>
+
+    <p>
+      Apart from thrust generation, rockets also require robust control systems, navigation & guidance system, communication system etc, and these onboard avionics are powered by onboard batteries like Ag-Zn battery(for shot distance missions), Li-Ion(for long distance mission) and Thermal batteries(for stage-seperation). These batteries also power the sensors which continiously sense several parameters of the launch vehicle and transmit to ground station. Data acqisition and visualization is a very crucial part of rocket science and is very strictly followed at SDSC.
+    </p>
+
+    <p>
+      There are many more things that I learned like- every person entering any facility has to tocuh iron chains before entering so that all the free charges on the body are sent to ground(rocket fuels are highly inflammable, pico-Joule spark is needed to ignite them, therefore safety is must !), liquid fuel is filled at last stage of launch vehicle preperation and this process is virtually controlled using valves as these chemicals are highly toxic, ISRO needs atleast 15 days in between consecutive launch etc. Atlast the most important thing I noticed in the people working at ISRO is their focus and professionalism they put in every work. Even though the working hours are 9am-5pm (Mon-Fri), but still ISRO outperforms many international space organizations because of their GRIT. They take failures very seriously, they enjoy sucess very politly and that is why they represent INDIA very proudly ! 
+    </p>
+  </div>
+
+  <script>
+    // Optional: Close with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.close();
+      }
+    });
+  </script>
+</body>
+</html>
